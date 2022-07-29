@@ -1,0 +1,65 @@
+<div class="full col-lg-12 col-md-10 col-sm-10">
+    <app-header></app-header>
+    <div>
+        <form [formGroup]="postTweetForm">
+        <span *ngIf="!postFlag" class="hello">
+            Hi <span class="hellouser"><b>{{userName}}</b></span> !
+        </span>
+        
+        <span *ngIf="postFlag" id="tweetDes1">
+            
+                <textarea class="textBox col-8" name="tweetDes" formControlName='tweetDes' placeholder="Enter your Tweet"
+                    rows="2" cols="50"></textarea>
+        </span>
+        <span class="form-group post mr-5">
+            <button class="btn" type="submit" value="submit" *ngIf="!postFlag" (click)="post()">New Tweet</button>
+            <button class="btn" type="submit" value="submit" *ngIf="postFlag" (click)="posttweet(postTweetForm)"
+                [disabled]="!postTweetForm.valid">Post</button>
+        </span>
+    </form>
+    </div>
+
+    <div class="row ml-1 mt-3 mb-3">
+        <div class="col-lg-12 p-2 pb-5" *ngFor="let data of tweets;let i = index">
+            <div class="card postCard pt-3 ml-5 mt-0">
+                <div class="row">
+                    <img src="data:image/png;base64,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" class=" ml-5 mr-2" alt="user-img" width="60" height="60">
+                    <div class="ml-2 mt-2 mb-2 timeStamp">@{{data.userName}} <span class="pl-5 td">{{data.tweetDate}}
+                        </span></div>
+                </div>
+                <div class="row mt-4"><span class="col-12 tweet"> {{data.tweetDes}} </span></div>
+
+                <div *ngIf="data.like > 0" class="row likenum">
+                    {{data.like}} ppl liked
+                </div>
+                <div class="row like">
+                    <a routerLink="/tweet" *ngIf="!likeStatus[data.id]" (click)="likeTweet(data.id)" class="fs-blue"><i
+                            class="fa fa-thumbs-up fs-blue" >
+                        </i>Like
+                    </a>
+                    <a routerLink="/tweet" *ngIf="likeStatus[data.id]" (click)="unlike(data.id)"><i class="fa fa-thumbs-up">
+                        </i>UnLike
+                    </a>
+                    <a href="javascript:void(0);" (click)="reply[i]=true" class="pl-5 mb-2">Reply
+                    </a>
+                </div>
+                <div class="row mb-3 ml-2" *ngIf="reply[i]">
+                    <textarea class="col-8 textArea" id="replyDesc" name="replyDesc" [(ngModel)]='replyDesc'
+                        placeholder="Enter your Reply" rows="2" cols="50"></textarea>
+                    <span class="col-2"><button class="postCommentButton mt-2" type="submit" value="submit"
+                            (click)="postcomment(data.id,i)"><i class="material-icons send">send</i></button>
+                    </span>
+                </div>
+                <div *ngIf="data.replyList?.length > 0" class="card comment mr-3 mb-3">
+                    <div *ngFor="let comment of data.replyList;">
+                        <div class="ml-5 timeStamp">@{{comment.userName}} <span
+                                class="pl-5 td">{{comment.date}}</span>
+                        </div>
+                        <div class="ml-5 reply"> {{comment.replyDesc}} </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

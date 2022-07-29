@@ -1,0 +1,93 @@
+.full{
+    background-image: url('https://optinmonster.com/wp-content/uploads/2018/08/how-to-create-a-follow-us-on-twitter-popup-with-optinmonster-2.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-size: cover;
+    font-family:  Garamond !important;
+}
+h2{
+    font-size: 35px;
+    font-family:  Garamond !important;
+    color: rgb(220, 225, 243);
+    text-shadow:1px 1px rgb(43, 58, 141);
+}
+.post {
+    float:right;
+    border: 1px solid #0d88ec;
+    border-radius: 7px;
+    margin-left: 12%;
+    background-color: #32abf1;
+    color: white;
+    width:90px;
+    height: 35px;
+}
+.message{
+    margin-left: 12%;
+    height: 50px;
+    width: 800px;
+}
+.del {
+    border: 1px solid #f0e9e9;
+    border-radius: 7px;
+    width:90px;
+    margin-left: 5%;
+    background-color: #f83d3d;
+    color: white;
+}
+.replybtn{
+    border: 1px solid #0d88ec;
+    border-radius: 7px;
+    /* width:100px; */
+    margin-left: 5%;
+    background-color: #32abf1;
+    color: white;
+}
+.tweet {
+    margin-top: -2%;
+    margin-left: 12%;
+    font-size: 20px;
+    font-family:Garamond;
+}
+.like {
+    margin-left:10%;
+}
+.postCard {
+    border: 1px solid #33ccff;
+    border-radius: 10px;
+    margin-left: -10% !important;
+    width: 750px;
+}
+
+.comment {
+    margin-left:10%;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+}
+.reply{
+    font-size: 20px;
+    font-family:Garamond;
+}
+.timeStamp {
+    color: #062058;
+    text-shadow:1px 1px rgb(154, 168, 248);
+    font-size: 22px;
+}
+.td{
+    color: #4d75ca;
+    font-size: 15px;
+}
+textArea {
+    margin-left: 10%;
+    border: 1px solid #0099cc !important;
+    border-radius: 7px !important;
+    width: 650px !important;
+    font-family:Garamond;
+}
+.indx {
+    margin-left: 15%;
+}
+.d-flex {
+    color: #004280;
+    margin-left: -650px;
+}

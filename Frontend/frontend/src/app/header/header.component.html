@@ -1,0 +1,81 @@
+<div class="navbar navbar-expand-lg">
+    <section class="logo">
+        <a href="#" class="navbar-brand">
+            <img src="https://nashvillefilmfestival.org/wp-content/uploads/2018/03/Twitter-Button.png" height="70"
+                    width="90" alt="logo">
+        </a>
+    </section>
+    <h2 class="text-dark" *ngIf="status != null">weet</h2>
+    <h2 class="text-dark" *ngIf="status == null">weet</h2>
+    <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarcollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <section class="collapse navbar-collapse" id="navbarcollapse">
+        <ul class="navbar-nav ml-auto ">
+            <li class="nav-item active">
+                <h4><a class="nav-link text-white" *ngIf="status == null" routerLink="/signup">SignUp</a></h4>
+            </li>
+            <li class="nav-item active">
+                <h4><a class="nav-link text-white" *ngIf="status != null" (click)="open(content)">Users</a></h4>
+            </li>
+            <li class="nav-item active">
+                <h4><a class="nav-link text-white" *ngIf="status != null && twtflag=='alltweet'" routerLink="/mytweet">My Tweets</a></h4>
+            </li>
+            <li class="nav-item active">
+                <h4><a class="nav-link text-white" *ngIf="status != null && twtflag=='mytweet'" routerLink="/tweet">All Tweets</a></h4>
+            </li>
+            <li class="nav-item active">
+                <h4><a class="nav-link text-white" *ngIf="status != null" data-toggle="modal"
+                        data-target="#resetModal">Reset Password</a>
+                </h4>
+            </li>
+            <li class="nav-item active">
+                <h4><a class="nav-link text-white" *ngIf="status != null" (click)="logout()">Logout</a></h4>
+            </li>
+        </ul>
+    </section>
+</div>
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h3 class="modal-title text-primary" id="modal-basic-title">LIST OF USERS</h3>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div style="margin-top: 5px;" *ngFor="let user of userList">
+            <div>
+                <h5>{{user.userName}}</h5>
+                
+            </div>
+            <br>
+        </div>
+    </div>
+</ng-template>
+
+<div id="resetModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-primary">RESET PASSWORD</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="resetForm">
+                    <div class="row">
+                            <h6>New Password:</h6>
+                            <input style="margin-left: 30px;" type="password" formControlName='password' required>
+                    </div>
+                    <div class="row">
+                        <h6>Confirm Password:</h6>
+                        <input type="password" formControlName="confirmPassword" required>
+                    </div>
+                    <div class="text-danger small" *ngIf="resetForm.get('password').value!=resetForm.get('confirmPassword').value && resetForm.get('password').touched && resetForm.get('confirmPassword').dirty">Password does not match</div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" value="submit" data-dismiss="modal" (click)="resetPassword(resetForm)" [disabled]="!resetForm.valid && resetForm.get('password').value!=resetForm.get('confirmPassword').value">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

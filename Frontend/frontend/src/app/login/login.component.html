@@ -1,0 +1,77 @@
+<div class="full col-lg-12 col-md-10 col-sm-10">
+    <app-header></app-header>
+    <div class="errorlog">
+        <span [style.visibility]="'hidden'" class="alert alert-danger"></span>
+        <span class="alert alert-danger text-danger" *ngIf="loginStaus != null">{{loginStaus}}</span>
+        <span class="alert alert-danger text-danger" *ngIf="resetFlag == 'true' && (loginForm.get('userName').untouched && loginForm.get('password').untouched)">Username does not exist</span>
+        <span class="alert alert-success text-success" *ngIf="resetFlag == 'false' && (loginForm.get('userName').untouched && loginForm.get('password').untouched)">Password Reset Successfully</span>
+    </div>
+    <div class="container">
+        <h2 class="text-white">LOGIN</h2>
+    </div>
+    <form [formGroup]="loginForm">
+        <!-- <div class="alert alert-info small msg" *ngIf="loginStaus != null">{{loginStaus}}</div> -->
+        <div class="row">
+                <div><input style="font-family: Garamond;" autocomplete="off" type="text" formControlName='userName' id="user-name" placeholder="Username" required></div>
+                <div class="text-danger"
+                    *ngIf="!loginForm.get('userName').valid && loginForm.get('userName').touched">Please enter username</div>
+        </div>
+        <div class="row">
+                <div><input style="font-family: Garamond;" type="password" formControlName='password' id="password" placeholder="Password" required></div>
+                <div class="text-danger"
+                    *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter password</div>
+        </div>
+        <div class="row">
+           <span><button class="btn text-white" type="button" value="submit" (click)="loginSubmit(loginForm)"
+                [disabled]="!loginForm.valid"><b>LOGIN</b></button></span>
+            <span class="fp"><a href="" data-toggle="modal" data-target="#forgotModal">Forgot password</a></span>
+          </div>
+    </form>
+</div>
+
+<div id="forgotModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+               <h4 class="modal-title">RESET PASSWORD</h4>
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="forgotForm">
+                    <div class="row">
+                        <span class="fname">User Name</span>
+                        <span><input type="text" formControlName="userName" width="30px" class="fuser"></span>
+                        <div class="errmsg">
+                            <span [style.visibility]="'hidden'" class="text-danger"></span>
+                            <span class="text-danger" *ngIf="!forgotForm.get('userName').valid && forgotForm.get('userName').touched">Enter
+                                username</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <span class="fname">Password</span>
+                        <span><input type="password" formControlName="password" width="30px" class="fpass"></span>
+                        <div class="errmsg">
+                            <span [style.visibility]="'hidden'" class="text-danger"></span>
+                            <span class="text-danger" *ngIf="!forgotForm.get('password').valid && forgotForm.get('password').touched">Enter
+                                Password</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <span class="fname">Re-enter Password</span>
+                        <span><input type="password" formControlName="confirmPassword" width="50px" class="fcpass"></span>
+                        <div class="errmsg">
+                            <span [style.visibility]="'hidden'" class="text-danger"></span>
+                            <span class="text-danger" *ngIf="!forgotForm.get('confirmPassword').valid && forgotForm.get('confirmPassword').touched">Re-Enter
+                                Password</span>
+                            <span class="text-danger" *ngIf="forgotForm.get('password').value!=forgotForm.get('confirmPassword').value && forgotForm.get('password').touched && forgotForm.get('confirmPassword').dirty">
+                                Password  does not match</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="fpbtn text-white" value="submit" data-dismiss="modal" (click)="resetPassword(forgotForm)" [disabled]="!forgotForm.valid && forgotForm.get('password').value!=forgotForm.get('confirmPassword').value">RESET</button>
+            </div>
+        </div>
+    </div>
+</div>

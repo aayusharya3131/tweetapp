@@ -1,0 +1,128 @@
+.full{
+    background-image: url('https://optinmonster.com/wp-content/uploads/2018/08/how-to-create-a-follow-us-on-twitter-popup-with-optinmonster-2.png');
+    background-position: center;
+    height: 700px;
+    background-size: cover;
+
+}
+h2{
+    margin-left: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 40px;
+}
+.card{
+    height: 370px;
+    margin-top: 50px;
+    margin-left: 300px;
+    margin-bottom: 10%;
+    width: 500px;
+    background-image: url('https://optinmonster.com/wp-content/uploads/2018/08/how-to-create-a-follow-us-on-twitter-popup-with-optinmonster-2.png');
+}
+.container{
+    margin-top: 40px;
+    margin-left: 210px;
+    font-family: Garamond !important;
+}
+input{
+    margin-left: 200px;
+    font-size: 20px;
+    text-indent:10px;
+    margin-top: 40px;
+    width: 300px;
+    height: 50px;
+    border-radius: 8px;
+    border: 2px solid black;
+}
+.fuser{
+    margin-left: 88px !important;
+    margin-top: 10px !important;
+    width: 240px !important;
+    height: 45px !important;
+    border-radius: 8px !important;
+    border: 2px solid black !important;
+}
+.fpass{
+    margin-left: 100px !important;
+    margin-top: 10px !important;
+    width: 240px !important;
+    height: 45px !important;
+    border-radius: 8px !important;
+    border: 2px solid black !important;
+}
+.fcpass{
+    margin-left: 20px !important;
+    margin-top: 10px !important;
+    width: 240px !important;
+    height: 45px !important;
+    border-radius: 8px !important;
+    border: 2px solid black !important;
+}
+.fname{
+    margin-top: 20px !important;
+    margin-left: 20px;
+    font-size: 20px;
+}
+.text-danger{
+    margin-top: 50px;
+    margin-left: 10px !important;
+    font-family: Garamond;
+    font-size: 20px;
+}
+
+.btn{
+    margin-top: 40px;
+    margin-left: 200px;
+    width: 100px;
+    font-size: 20px;
+    /* background-image: url('https://webgradients.com/public/webgradients_png/091%20Eternal%20Constance.png'); */
+    background-color: #2f7bdf;
+    /* background-color: blue; */
+    border-radius: 10px;
+    font-family: Garamond;
+}
+.fpbtn{
+    font-size: 15px;
+    background-color: #2f7bdf;
+    border-radius: 10px;
+    height: 40px;
+    width: 80px;
+}
+.fp{
+    margin-top: 45px;
+    margin-left: 45px;
+    font-size: 23px;
+    font-family: Garamond !important;
+    color: white;
+}
+a{
+    color: blue !important;
+}
+.msg{
+    width: 300px;
+    margin-top: 10px;
+    margin-left: 200px;
+}
+.errorlog{
+    margin-top: 80px;
+    margin-left: 200px;
+}
+.errmsg{
+    margin-top: 5px;
+    margin-left: 190px;
+}
+.modal-title{
+    font-family: Garamond;
+    font-size: 25px;
+    color: royalblue;
+    margin-left: 90px;
+}
+.modal-body{
+    background-color: rgb(221, 185, 216) !important;
+}
+.modal-header{
+    background-color: rgb(221, 185, 216) !important;
+}
+.modal-footer{
+    background-color: rgb(221, 185, 216) !important;
+}
+ 

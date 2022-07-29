@@ -1,0 +1,119 @@
+<div class="full">
+    <app-header></app-header>
+    <form style="margin-top: -60px;" [formGroup]="signupForm">
+        <div class="row">
+            <div>
+                <div>
+                    <h5>First Name<span class="text-danger">*</span></h5><input autocomplete="off" type="text" formControlName='firstName'
+                        id="firstName" required>
+                        <span class="text-danger"
+                    *ngIf="!signupForm.get('firstName').valid && signupForm.get('firstName').touched">
+                    Enter
+                    First Name</span>
+                </div>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <div>
+                    <h5>Last Name<span class="text-danger">*</span></h5><input autocomplete="off" type="text" formControlName='lastName'
+                        id="lastName" required>
+                        <span class="text-danger"
+                    *ngIf="!signupForm.get('lastName').valid && signupForm.get('lastName').touched">
+                    Enter
+                    Last Name</span>
+                </div>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <div>
+                    <h5>Contact<span class="text-danger">*</span></h5><input autocomplete="off" type="number" formControlName='contactNum'
+                        id="contactNum" required>
+                        <span class="text-danger"
+                    *ngIf="(signupForm.get('contactNum').hasError('maxlength') || signupForm.get('contactNum').hasError('minlength')) && signupForm.get('contactNum').touched">
+                    Contact Number should be 10 digits</span>
+                    <span class="text-danger"
+                    *ngIf="!signupForm.get('contactNum').valid && signupForm.get('contactNum').touched">Enter
+                    Contact Number
+            </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <div>
+                    <h5>LoginID/Username<span class="text-danger">*</span></h5><input autocomplete="off" type="text" formControlName='userName'
+                        id="userName" required>
+                        <span class="text-danger"
+                    *ngIf="!signupForm.get('userName').valid && signupForm.get('userName').touched">
+                    Enter
+                    User Name</span>
+                </div>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <div>
+                    <h5>Password<span class="text-danger">*</span></h5><input type="password" formControlName='password'
+                        id="password" required>
+                        <span class="text-danger"
+                    *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched">
+                    Enter
+                    Password</span>
+                </div>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <div>
+                    <h5>Confirm Password<span class="text-danger">*</span></h5><input type="password"
+                        formControlName='confirmPassword' id="confirmPassword" required>
+                        <span class="text-danger"
+                        *ngIf="!signupForm.get('confirmPassword').valid && signupForm.get('confirmPassword').touched">
+                        Re-Enter
+                        Password</span>
+                    <span
+                        *ngIf="signupForm.get('confirmPassword').value!=signupForm.get('password').value && signupForm.get('confirmPassword').dirty">
+                        Password does not match</span>
+                </div>
+               
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <div>
+                    <h5>E-mail ID<span class="text-danger">*</span></h5> <input autocomplete="off" type="text"
+                        formControlName='email' id="email" required>
+                        <span class="text-danger" *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">Enter
+                            Email</span>
+                </div>
+              
+            </div>
+        </div>
+        <div style="margin-left: 250px; margin-top: 30px;">
+            <button class="btn btn-primary text-white" type="button" value="submit" (click)="signupSubmit(signupForm)"
+                [disabled]="!signupForm.valid" data-toggle="modal" data-target="#regModal"><b>REGISTER</b></button>
+        </div>
+    </form>
+</div>
+
+<div id="regModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                {{registerMsg}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" *ngIf="registerMsg=='Registration successful. Please Login!'" routerLink="/login"
+                    class="close" data-dismiss="modal">Login</button>
+                <button type="button" class="close" data-dismiss="modal"
+                    *ngIf="registerMsg!='Registration successful. Please Login!'">OK</button>
+            </div>
+        </div>
+    </div>
+</div>

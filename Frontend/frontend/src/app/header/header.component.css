@@ -1,0 +1,51 @@
+input{
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 200px;
+    height: 40px; 
+    border-radius: 10px;
+}
+
+h6{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+h2{
+    font-size: 55px;
+    color: white !important;
+    text-shadow: 1px 1px ;
+    margin-top: 10px;
+    margin-left: -5px;
+}
+h4{
+    text-align: center;
+    font-family:Garamond;
+}
+h5{
+    font-family:Garamond;
+    margin-left: 20px;
+}
+hr{
+    color: #32abf1 !important;
+}
+#modal-basic-title,.modal-title{
+    font-family:Garamond;
+    font-size: 25px;
+    color: royalblue;
+    margin-left: 110px;
+}
+.nav-link:hover{
+    cursor: pointer;
+}
+.modal-body{
+    background-color: rgb(221, 185, 216) !important;
+}
+.modal-header{
+    background-color: rgb(221, 185, 216) !important;
+}
+.modal-footer{
+    background-color: rgb(221, 185, 216) !important;
+}
+.btn{
+    font-size: 20px;
+}
